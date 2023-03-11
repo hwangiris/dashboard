@@ -1,0 +1,80 @@
+
+// 裝置
+@mixin apply-to-large-desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin apply-to-desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin apply-to-pad {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+@mixin apply-to-phone {
+  @media screen and (min-width: 414px) {
+    @content;
+  }
+}
+@mixin apply-to-min-phone {
+  @media screen and (min-width: 360px) {
+    @content;
+  }
+}
+
+@mixin list($margin: 0, $padding: 0, $style: none) {
+  margin: $margin;
+  padding: $padding;
+  list-style: $style;
+}
+
+@mixin beforeafter($content: '', $display: block) {
+  content: $content;
+  display: $display;
+}
+
+@mixin clear() {
+  @include beforeafter('', table);
+  clear: both;
+}
+
+@mixin lineclamp($line) {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+
+%typo-margin {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+@mixin typo-weight {
+  font-weight: 600;
+  @include apply-to-pad {
+    font-weight: 500;
+  }
+}
+
+@mixin body-weight {
+  font-weight: 400;
+  @include apply-to-pad {
+    font-weight: 300;
+  }
+}
+
+%typo-weight {
+  font-weight: 600;
+  @include apply-to-pad {
+    font-weight: 500;
+  }
+}
+
+@function px2rem($value) {
+  @return $value * $spacer;
+}

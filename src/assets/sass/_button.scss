@@ -1,0 +1,73 @@
+.btn {
+  display: flex;
+  align-items: center;
+  gap: px2rem(16);
+  padding: px2rem(16) px2rem(12);
+  border-radius: px2rem(4);
+  path {
+    @include apply-to-desktop {
+      transition: fill 0.3s;
+    }
+  }
+  &:hover {
+    box-shadow: 0px 6px 15px rgba($primary, 0.4);
+  }
+}
+
+.btn-contained {
+  color: $white;
+  background-color: $primary;
+  border: 0;
+}
+.btn-outlined {
+  color: $black;
+  background-color: $white;
+  border: 1px solid $primary;
+  svg {
+    color: $primary;
+    @at-root :hover#{&} {
+      color: $white;
+    }
+  }
+  &:hover {
+    color: $white;
+    background-color: $primary;
+  }
+}
+.btn-100 {
+  width: 100%;
+}
+.btn-center {
+  justify-content: center;
+}
+
+.btn-link, .text-link {
+  position: relative;
+  &.btn-black {
+    color: $black;
+  }
+  &.btn-primary {
+    color: $primary;
+  }
+  svg {
+    margin-right: px2rem(8);
+  }
+  &::after {
+    @include beforeafter;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $primary;
+    transition: width 0.3s;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+.btn-link {
+  &::after {
+    margin-top: px2rem(4);
+  }
+}

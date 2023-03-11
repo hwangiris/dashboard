@@ -1,0 +1,84 @@
+.label-check {
+	display: block;
+	position: relative;
+	font-size: 0;
+	cursor: pointer;
+	z-index: 1;
+	user-select: none;
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		line-height: 1.2307692308;
+		transition: all 0.3s;
+	}
+}
+
+.label-check {
+	span {
+		&.label-check-txt {
+			width: calc(100% - 1.125rem);
+			padding-left: 0.5rem;
+		}
+		&.label-check-helper {
+			display: block;
+			padding-top: 5px;
+			padding-left: calc(1.125rem + 0.575rem);
+			color: $black;
+			font-size: 0.875rem;
+			font-weight: normal;
+			line-height: 1.25;
+		}
+		&.label-check-mark {
+			position: relative;
+			top: calc((1.25rem - 1.125rem) / 2);
+			left: 0;
+			width: 1.125rem;
+			height: 1.125rem;
+			background-color: $gray-300;
+			border: 2px solid $gray-300;
+      border-radius: px2rem(2);
+			&::after {
+        @include beforeafter('', block);
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 10px;
+				height: 6px;
+        border: solid $primary;
+        border-width: 0 0 2px 2px;
+        opacity: 0;
+        transition: opacity 0.1s;
+				transform: rotate(-45deg) translate(0%, -100%);
+			}
+		}
+	}
+	input[type="checkbox"] {
+		position: absolute;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+		opacity: 0;
+		cursor: pointer;
+		&:checked {
+			~ span.label-check-mark {
+				border-color: $primary;
+				background-color: $white;
+				&::after {
+          opacity: 1;
+				}
+			}
+		}
+	}
+	&:hover,
+	&.active {
+		input[type="checkbox"] {
+			~ span.label-check-mark {
+				background-color: $primary;
+				border-color: $primary;
+				&::after {
+          border-color: $white;
+				}
+			}
+		}
+	}
+}

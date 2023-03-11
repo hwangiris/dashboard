@@ -1,0 +1,48 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: color 5000000s ease-in-out 0s,
+  background-color 5000000s ease-in-out 0s;
+}
+
+.textfield-floating {
+  position: relative;
+  font-size: $h4;
+  label {
+    position: absolute;
+    top: px2rem(16);
+    left: px2rem(12);
+    color: $gray-400;
+    transition: all 0.3s;
+  }
+  input {
+    width: 100%;
+    padding: px2rem(16) px2rem(12);
+    border: 0;
+    background-color: $background;
+    @at-root .has-icon#{&} {
+      padding-right: px2rem(40);
+    }
+    @at-root .has-value#{&},
+    &:hover {
+      + label {
+        top: px2rem(8);
+        transform: scale(0.7142857143);
+        transform-origin: top left;
+      }
+    }
+    @at-root .has-value#{&},
+    &:focus {
+      padding-top: px2rem(22);
+      padding-bottom: px2rem(10);
+    }
+  }
+  svg {
+    position: absolute;
+    top: 50%;
+    right: $h4;
+    cursor: pointer;
+    transform: translateY(-50%);
+  }
+}

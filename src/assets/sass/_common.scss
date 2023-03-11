@@ -1,0 +1,81 @@
+@import url("https://use.typekit.net/rqc3fmt.css");
+
+%full-height {
+  @include apply-to-pad {
+    min-height: 100%;
+    height: 100%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    outline: 0;
+  }
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
+  @extend %full-height;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Interstate', sans-serif;
+  line-height: 1;
+  @extend %full-height;
+  @include apply-to-pad {
+    background-color: $background;
+  }
+  &.opened {
+    overflow: hidden;
+  }
+}
+
+#app {
+  @include apply-to-pad {
+    display: flex;
+    flex: 1 0 0;
+  }
+}
+
+a, button {
+  padding: 0;
+  font-weight: inherit;
+  line-height: 1;
+  text-decoration: none;
+  background: none;
+  border: 0;
+  outline: 0;
+  appearance: none;
+  cursor: pointer;
+  @include apply-to-desktop {
+    transition: color 0.3s, background 0.3s, border-color 0.3s;
+  }
+}
+
+img {
+  display: block;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+}
+
+.sr-only {
+  position: absolute !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  font-size: 0 !important;
+}

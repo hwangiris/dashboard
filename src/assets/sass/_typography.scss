@@ -1,0 +1,14 @@
+// 標題
+$h-size: $h1, $h2, $h3, $h4, $h5;
+$h-m-size: $h1-m, $h2-m, $h3-m, $h4-m, $h5-m;
+
+@for $i from 1 through 5 {
+  h#{$i},
+  .h#{$i} {
+    @extend %typo-margin;
+    font-size: nth($h-m-size, $i);
+    @include apply-to-pad {
+      font-size: nth($h-size, $i);
+    }
+  }
+}

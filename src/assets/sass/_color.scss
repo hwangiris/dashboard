@@ -1,0 +1,16 @@
+@each $color, $value in $grays {
+	.text-gray-#{$color} {
+		color: nth($value, 1);
+	}
+	.bg-gray-#{$color} {
+		background-color: nth($value, 1);
+	}
+}
+@each $color, $value in $colors {
+	.text-#{$color} {
+		color: nth($value, 1);
+	}
+	.bg-#{$color} {
+		background-color: nth($value, 1);
+	}
+}
